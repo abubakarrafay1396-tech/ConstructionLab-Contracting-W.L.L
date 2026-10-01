@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# [TO CONFIRM: final website URL]. Replace the domain and uncomment before launch.
+# Sitemap: https://example.invalid/sitemap.xml

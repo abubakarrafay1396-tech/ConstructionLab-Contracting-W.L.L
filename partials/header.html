@@ -1,0 +1,43 @@
+  <!-- SHARED HEADER START: the same markup is in partials/header.html. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-design" viewBox="0 0 24 24"><path d="m4 16 12-12 4 4L8 20H4v-4Zm10-10 4 4M4 4h6M4 4v6M20 14v6h-6"/></symbol>
+      <symbol id="i-install" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="9" rx="2"/><path d="M6 10h12M7 16v4m5-4v5m5-5v4M17 7h1"/></symbol>
+      <symbol id="i-duct" viewBox="0 0 24 24"><path d="M3 4h9a8 8 0 0 1 8 8v9h-6v-9a2 2 0 0 0-2-2H3V4Zm4 0v6m7 5h6M3 3v8m10 10h8"/></symbol>
+      <symbol id="i-test" viewBox="0 0 24 24"><path d="M8 4H5v17h14V4h-3"/><rect x="8" y="2" width="8" height="5" rx="1"/><path d="m8 13 3 3 5-6"/></symbol>
+      <symbol id="i-service" viewBox="0 0 24 24"><path d="M14 4a6 6 0 0 0-7 7L3 15a3 3 0 0 0 4 4l4-4a6 6 0 0 0 7-7l-4 4-3-3 3-5Z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18m-14 5 3 3 6-6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="m7 3 3 5-3 2c1 3 3 5 6 6l2-3 5 3-1 4C10 22 2 14 3 5l4-2Z"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11a9 9 0 0 1-13 8l-5 2 1-5A9 9 0 1 1 21 11Z"/><path d="M8 10h8M8 14h5"/></symbol>
+      <symbol id="i-location" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m7 12 3 3 7-7"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V3h11v18m0-12h5v12M2 21h20M8 7h3M8 11h3M8 15h3m-3 6v-3h3v3"/></symbol>
+    </defs>
+  </svg>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Construction Lab Air Conditioning home"><img src="assets/logo.svg" width="128" height="57" alt="Construction Lab Air Conditioning"></a>
+      <div class="header-controls">
+        <a class="button button--quote" href="contact.html#quote-form" data-track="quote">Get a quote</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+      <nav class="navigation" id="primary-navigation" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="header-actions">
+          <a class="header-phone" href="contact.html#contact-details" data-contact="phone" aria-label="Call: phone number to be confirmed. View contact options."><span data-config="PHONE">[TO CONFIRM: phone]</span></a>
+          <a class="button button--outline" href="contact.html#contact-details" data-contact="whatsapp" aria-label="WhatsApp number to be confirmed. View contact options.">WhatsApp</a>
+          <a class="button button--quote" href="contact.html#quote-form" data-track="quote">Get a quote</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- SHARED HEADER END -->

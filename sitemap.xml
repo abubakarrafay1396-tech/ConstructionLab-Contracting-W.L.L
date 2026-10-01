@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- [TO CONFIRM: final website URL]. Replace https://example.invalid/ before submission. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.invalid/</loc></url>
+  <url><loc>https://example.invalid/about.html</loc></url>
+  <url><loc>https://example.invalid/services.html</loc></url>
+  <url><loc>https://example.invalid/projects.html</loc></url>
+  <url><loc>https://example.invalid/contact.html</loc></url>
+</urlset>
