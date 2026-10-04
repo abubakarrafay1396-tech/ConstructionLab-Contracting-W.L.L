@@ -177,11 +177,13 @@
   form.noValidate = true;
   const fields = $('#quote-fields');
   if (fields) fields.disabled = false;
-  const setupNote = $('#form-setup-note');
-  if (setupNote && httpsURL(config.FORM_ENDPOINT)) setupNote.hidden = true;
   const status = $('#form-status');
   const submit = $('[type="submit"]', form);
   const sendWhatsApp = $('#form-whatsapp');
+  const hasEndpoint = Boolean(httpsURL(config.FORM_ENDPOINT));
+  const submitLabel = $('[data-form-submit-label]', form);
+  if (submitLabel) submitLabel.textContent = hasEndpoint ? 'Send enquiry' : 'Send enquiry on WhatsApp';
+  if (sendWhatsApp) sendWhatsApp.hidden = !hasEndpoint;
   const serviceSelect = $('#service');
   const params = new URLSearchParams(window.location.search);
   const service = params.get('service');
@@ -228,13 +230,11 @@
   function getData() {
     return Object.fromEntries([...new FormData(form).entries()].map(([key, value]) => [key, String(value).trim()]));
   }
-  if (sendWhatsApp) sendWhatsApp.addEventListener('click', () => {
+  function openWhatsAppEnquiry(data) {
     if (!whatsapp) {
       setStatus(`WhatsApp number to be confirmed. Please email ${email}. Your enquiry has not been sent.`, 'error');
       return;
     }
-    if (!validate()) return;
-    const data = getData();
     const lines = [
       'Hello, I would like an HVAC quote.',
       `Name: ${data.name}`, data.company ? `Company: ${data.company}` : '',
@@ -242,8 +242,23 @@
       `Service: ${data.service}`, `Project location: ${data.location}`, `Message: ${data.message}`
     ].filter(Boolean);
     track('whatsapp_click');
-    window.open(whatsappURL(lines.join('\n')), '_blank', 'noopener,noreferrer');
-    setStatus('WhatsApp will open with your enquiry. Review the message and press Send in WhatsApp.', 'info');
+    const url = whatsappURL(lines.join('\n'));
+    window.open(url, '_blank', 'noopener,noreferrer');
+    setStatus('Your enquiry is ready in WhatsApp. Review it and press Send there. If WhatsApp did not open, use this link: ', 'info');
+    if (status) {
+      const fallback = document.createElement('a');
+      fallback.href = url;
+      fallback.target = '_blank';
+      fallback.rel = 'noopener noreferrer';
+      fallback.textContent = 'Open WhatsApp';
+      status.append(fallback);
+    }
+  }
+  if (sendWhatsApp) sendWhatsApp.addEventListener('click', () => {
+    const data = getData();
+    if (data.website) { setStatus('Your enquiry could not be sent. Please email us instead.', 'error'); return; }
+    if (!validate()) return;
+    openWhatsAppEnquiry(data);
   });
   form.addEventListener('submit', async event => {
     event.preventDefault();
@@ -252,7 +267,7 @@
     if (data.website) { setStatus('Your enquiry could not be sent. Please email us instead.', 'error'); return; }
     if (!validate()) return;
     const endpoint = httpsURL(config.FORM_ENDPOINT);
-    if (!endpoint) { setStatus(`Online submission is not connected yet. Please email ${email}${whatsapp ? ' or use the WhatsApp button' : ''}. Your enquiry has not been sent.`, 'error'); return; }
+    if (!endpoint) { openWhatsAppEnquiry(data); return; }
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 20000);
     const originalLabel = submit ? submit.textContent : '';

@@ -31,12 +31,16 @@ Checked locally on 1 October 2026. A local check is not a live-delivery guarante
     and the map lazy-load. No framework or heavy libraries. Run PageSpeed Insights
     on the live domain after HTTPS and caching are enabled; no speed score is claimed.
 
+## Contact form update — 4 October 2026
+
+Primary submission now opens a validated WhatsApp enquiry to +973 38951500.
+The setup notice is removed. Browser checks cover required fields, invalid email,
+honeypot rejection, service preselection, encoded draft contents and the fallback
+link. No WhatsApp message is sent during these checks. Direct email/server delivery
+remains an optional integration.
+
 ## Placeholders still to fill
 
-- PHONE: [TO CONFIRM: phone]
-- WHATSAPP: [TO CONFIRM: WhatsApp number]
-- ADDRESS: [TO CONFIRM: address]
-- FORM_ENDPOINT: [TO CONFIRM: HTTPS form endpoint accepting JSON]
 - SITE_URL: [TO CONFIRM: final website URL, including https://]
 - Final domain in sitemap.xml and the Sitemap line in robots.txt
 - Static canonical, og:url and og:image URLs in page heads at launch

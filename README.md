@@ -45,9 +45,17 @@ acceptance. No form text or customer contact details are included in events.
 Disable automatic form event collection in the GA4 web stream too, so enhanced
 measurement does not count unsuccessful attempts as submitted leads.
 
-## Form endpoint contract
+## Enquiry form
 
-FORM_ENDPOINT must be a public HTTPS endpoint accepting POST JSON. Fields:
+The primary button validates the fields and opens a WhatsApp draft addressed to
++973 38951500. The visitor reviews it and presses Send in WhatsApp. A fallback
+link is shown if the browser blocks the new window. No enquiry is marked as
+received merely because WhatsApp opened. The form works without an email backend.
+
+## Optional form endpoint contract
+
+To enable direct server submission instead, set FORM_ENDPOINT to a public HTTPS
+endpoint accepting POST JSON. Fields:
 name, company, phone, email, service, location, message, website (honeypot).
 It must allow requests from the live domain via CORS, validate all fields on the
 server, check the honeypot, rate-limit abuse and deliver/store enquiries securely.
@@ -74,10 +82,6 @@ when available. The five downloaded photos total approximately 406 KB.
 
 ## Known placeholders
 
-- [TO CONFIRM: phone]
-- [TO CONFIRM: WhatsApp number]
-- [TO CONFIRM: address]
-- [TO CONFIRM: HTTPS form endpoint accepting JSON]
 - [TO CONFIRM: final website URL, including https://]
 - Optional GA4 measurement ID and Meta Pixel ID
 - Approved company logo (current wordmark is a stand-in)
@@ -88,8 +92,8 @@ when available. The five downloaded photos total approximately 406 KB.
 
 1. Fill confirmed company details in js/config.js. Update HTML fallback contact
    text to match, for visitors who do not run JavaScript.
-2. Connect and test FORM_ENDPOINT using the contract above. Until then the form
-   says it is not connected and directs visitors to the confirmed email address.
+2. Test the WhatsApp draft on desktop and mobile. A FORM_ENDPOINT is optional;
+   connect and test it only if direct server/email delivery is required.
 3. Set SITE_URL to the final HTTPS domain/folder. Replace https://example.invalid/
    in sitemap.xml, then add the correct uncommented Sitemap line in robots.txt.
    Mirror the canonical and Open Graph URLs into each page head. Runtime JS also
