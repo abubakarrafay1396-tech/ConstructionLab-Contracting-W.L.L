@@ -40,16 +40,20 @@ notice remains removed. Tests simulate app opening; no messages are sent.
 
 ## Placeholders still to fill
 
+Image update checked at 390px, 768px and 1440px across all five pages. No broken
+images, empty image blocks or horizontal overflow were found. All 25 generated
+image placements have captions and alt text. Filters still show 6 showroom,
+6 public and 4 commercial/residential projects. Both enquiry buttons remain
+visible. Existing Instagram photos are unchanged.
+
 - SITE_URL: [TO CONFIRM: final website URL, including https://]
 - Final domain in sitemap.xml and the Sitemap line in robots.txt
 - Static canonical, og:url and og:image URLs in page heads at launch
 - Optional GA4_ID and META_PIXEL_ID
 - Approved official logo files (stand-in SVG files are supplied)
-- Photo-to-project matches for all 16 named projects; expected filenames appear
-  in each placeholder's data-image-file attribute
-- service-hvac-design.jpg
-- service-testing-commissioning.jpg
-- service-maintenance-contracts.jpg
+- Real photos for the 16 named projects can replace the generated category images;
+  intended filenames are preserved in data-project-photo-file attributes.
+- Optional real photos to replace the three generated service illustrations
 
 ## Manual verification
 

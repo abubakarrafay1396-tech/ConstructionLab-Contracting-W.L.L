@@ -294,3 +294,10 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1
   .dark, .site-footer { color: var(--text); background: var(--white); }
   .dark h2, .site-footer h2, .site-footer p, .site-footer address { color: var(--text); }
 }
+
+/* Generated illustrations: real Instagram photos remain unchanged. */
+.generated-photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); }
+.project-media { margin: 0 0 var(--s6); }
+.project-media .generated-photo { aspect-ratio: 16 / 11; border-radius: 4px; }
+.illustration-caption { margin-top: 8px; color: var(--text-muted); font-size: .75rem; line-height: 1.5; }
+.section-heading .illustration-note, .illustration-note { color: var(--text-muted); font-size: .875rem; line-height: 1.6; }

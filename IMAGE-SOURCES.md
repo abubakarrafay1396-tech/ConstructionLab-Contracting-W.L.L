@@ -14,15 +14,18 @@ does not depend on temporary Instagram CDN links or Instagram embed scripts.
 
 These photos illustrate the company's site work. They have not been assigned to
 Toyota, Lexus, BDF, BISB or another named project without evidence. Named project
-cards retain replaceable photo slots. Match approved project-specific photos to
-the supplied project list before replacing those slots.
+cards now show clearly labeled AI-generated illustrations at the user's request.
+Replace these with approved project-specific photographs when available.
 
 A duplicate duct-preparation image and a brochure cover were inspected but not
 used. No Construction Lab Contracting account photos were mixed into this site.
 
-Suggested photo filenames for the remaining service slots:
-- service-hvac-design.jpg
-- service-testing-commissioning.jpg
-- service-maintenance-contracts.jpg
+## AI-generated illustrations
 
-Every named project slot includes its intended filename in data-image-file.
+All previously empty project and service photo slots now contain generic images
+generated with the built-in Imagegen tool. They do not depict the actual named
+projects, staff or verified installations. Every generated image has a visible
+caption and descriptive alt text. See GENERATED-IMAGE-PROMPTS.md for the full prompts.
+
+Category images are reused across related project cards, with no claim that they
+show the individual locations. Responsive WebP versions keep downloads smaller.

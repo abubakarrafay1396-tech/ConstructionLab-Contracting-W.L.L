@@ -72,13 +72,18 @@ Test end-to-end delivery before launch. A static site alone cannot send email.
 Five company Instagram photos are stored in assets/images. Their source posts
 and verified context are recorded in IMAGE-SOURCES.md. None of those posts named
 a client, so the photos are used for general site work and service illustrations.
-Named project photo slots remain unassigned. No invented project-photo matching.
+At the user's request, nine generated illustrations now fill the 25 previously
+empty slots: six home-page cards, sixteen project cards and three service images.
+Related project cards reuse category illustrations. Every generated image has a
+visible caption; project sections explain that these do not show the named sites.
+The original Instagram photographs remain unchanged.
 
-Ice-blue placeholder blocks identify where matching approved photos belong.
-data-image-file specifies the intended filename.
-Replace each block with a real image, descriptive alt text, width/height and
-loading="lazy" below the fold. Keep the hero image eager if it is above the fold.
-Only use approved project photos. Stand-in logo.svg, logo-light.svg, avatar.svg
+Generated assets use responsive 600px/1200px WebP files, lazy loading and explicit
+dimensions. All eighteen WebP files total 1,432,342 bytes. Full prompts are saved
+in GENERATED-IMAGE-PROMPTS.md. data-project-photo-file preserves the intended
+filename when replacing an illustration with a verified project photograph.
+
+Stand-in logo.svg, logo-light.svg, avatar.svg
 and favicon.svg are included in assets/. Replace the wordmarks with official files
 when available. The five downloaded photos total approximately 406 KB.
 
@@ -88,7 +93,7 @@ when available. The five downloaded photos total approximately 406 KB.
 - Optional GA4 measurement ID and Meta Pixel ID
 - Approved company logo (current wordmark is a stand-in)
 - Photos matched to the 16 named projects
-- Photos for HVAC design, testing/commissioning and maintenance service blocks
+- Optional real service photos to replace labeled generated illustrations
 
 ## How to deploy
 
