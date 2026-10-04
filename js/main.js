@@ -15,7 +15,7 @@
     const digits = value.replace(/\D/g, '');
     return /^[1-9]\d{7,14}$/.test(digits) ? digits : '';
   };
-  const email = confirmed(config.EMAIL) ? config.EMAIL : 'sales@constructionlab.com';
+  const email = confirmed(config.EMAIL) ? config.EMAIL : 'info@constructionlab.com';
   const phone = phoneNumber(config.PHONE);
   const whatsapp = phoneNumber(config.WHATSAPP);
   const defaultMessage = 'Hello, I would like to discuss an HVAC project or maintenance requirement in Bahrain.';
@@ -107,6 +107,7 @@
   };
   if (base) { schema.url = base.href; schema['@id'] = `${base.href}#business`; schema.image = new URL('assets/images/instagram-duct-replacement.jpg', base).href; }
   if (Number.isInteger(config.FOUNDED_YEAR)) schema.foundingDate = String(config.FOUNDED_YEAR);
+  if (phoneNumber(config.FAX)) schema.faxNumber = `+${phoneNumber(config.FAX)}`;
   if (phone) schema.telephone = `+${phone}`;
   if (confirmed(config.ADDRESS)) schema.address = { '@type': 'PostalAddress', streetAddress: config.ADDRESS, addressCountry: 'BH' };
   if (httpsURL(config.MAPS_URL)) schema.hasMap = config.MAPS_URL;
