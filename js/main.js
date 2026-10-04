@@ -179,8 +179,6 @@
   if (fields) fields.disabled = false;
   const setupNote = $('#form-setup-note');
   if (setupNote && httpsURL(config.FORM_ENDPOINT)) setupNote.hidden = true;
-  const contactNote = $('#contact-confirmation-note');
-  if (contactNote && phone && whatsapp && confirmed(config.ADDRESS) && confirmed(config.WORKING_HOURS)) contactNote.hidden = true;
   const status = $('#form-status');
   const submit = $('[type="submit"]', form);
   const sendWhatsApp = $('#form-whatsapp');

@@ -36,7 +36,6 @@ Checked locally on 1 October 2026. A local check is not a live-delivery guarante
 - PHONE: [TO CONFIRM: phone]
 - WHATSAPP: [TO CONFIRM: WhatsApp number]
 - ADDRESS: [TO CONFIRM: address]
-- WORKING_HOURS: [TO CONFIRM: working hours]
 - FORM_ENDPOINT: [TO CONFIRM: HTTPS form endpoint accepting JSON]
 - SITE_URL: [TO CONFIRM: final website URL, including https://]
 - Final domain in sitemap.xml and the Sitemap line in robots.txt

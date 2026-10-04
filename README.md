@@ -77,7 +77,6 @@ when available. The five downloaded photos total approximately 406 KB.
 - [TO CONFIRM: phone]
 - [TO CONFIRM: WhatsApp number]
 - [TO CONFIRM: address]
-- [TO CONFIRM: working hours]
 - [TO CONFIRM: HTTPS form endpoint accepting JSON]
 - [TO CONFIRM: final website URL, including https://]
 - Optional GA4 measurement ID and Meta Pixel ID
