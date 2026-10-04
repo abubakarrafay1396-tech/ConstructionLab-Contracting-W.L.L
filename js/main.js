@@ -180,10 +180,9 @@
   const status = $('#form-status');
   const submit = $('[type="submit"]', form);
   const sendWhatsApp = $('#form-whatsapp');
-  const hasEndpoint = Boolean(httpsURL(config.FORM_ENDPOINT));
   const submitLabel = $('[data-form-submit-label]', form);
-  if (submitLabel) submitLabel.textContent = hasEndpoint ? 'Send enquiry' : 'Send enquiry on WhatsApp';
-  if (sendWhatsApp) sendWhatsApp.hidden = !hasEndpoint;
+  if (submitLabel) submitLabel.textContent = 'Send by email';
+  if (sendWhatsApp) sendWhatsApp.hidden = false;
   const serviceSelect = $('#service');
   const params = new URLSearchParams(window.location.search);
   const service = params.get('service');
@@ -230,19 +229,33 @@
   function getData() {
     return Object.fromEntries([...new FormData(form).entries()].map(([key, value]) => [key, String(value).trim()]));
   }
+  function enquiryText(data) {
+    return [
+      'Hello, I would like an HVAC quote.',
+      `Name: ${data.name}`, data.company ? `Company: ${data.company}` : '',
+      `Phone or WhatsApp: ${data.phone}`, `Email: ${data.email}`,
+      `Service: ${data.service}`, `Project location: ${data.location}`, `Message: ${data.message}`
+    ].filter(Boolean).join('\n');
+  }
+  function openEmailEnquiry(data) {
+    const subject = `HVAC enquiry: ${data.service} - ${data.location}`;
+    const url = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquiryText(data))}`;
+    window.open(url, '_self');
+    setStatus(`Your email draft is ready for ${email}. Review it and press Send in your email app. If it did not open, use this link: `, 'info');
+    if (status) {
+      const fallback = document.createElement('a');
+      fallback.href = url;
+      fallback.textContent = 'Open email draft';
+      status.append(fallback);
+    }
+  }
   function openWhatsAppEnquiry(data) {
     if (!whatsapp) {
       setStatus(`WhatsApp number to be confirmed. Please email ${email}. Your enquiry has not been sent.`, 'error');
       return;
     }
-    const lines = [
-      'Hello, I would like an HVAC quote.',
-      `Name: ${data.name}`, data.company ? `Company: ${data.company}` : '',
-      `Phone or WhatsApp: ${data.phone}`, `Email: ${data.email}`,
-      `Service: ${data.service}`, `Project location: ${data.location}`, `Message: ${data.message}`
-    ].filter(Boolean);
     track('whatsapp_click');
-    const url = whatsappURL(lines.join('\n'));
+    const url = whatsappURL(enquiryText(data));
     window.open(url, '_blank', 'noopener,noreferrer');
     setStatus('Your enquiry is ready in WhatsApp. Review it and press Send there. If WhatsApp did not open, use this link: ', 'info');
     if (status) {
@@ -267,7 +280,7 @@
     if (data.website) { setStatus('Your enquiry could not be sent. Please email us instead.', 'error'); return; }
     if (!validate()) return;
     const endpoint = httpsURL(config.FORM_ENDPOINT);
-    if (!endpoint) { openWhatsAppEnquiry(data); return; }
+    if (!endpoint) { openEmailEnquiry(data); return; }
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 20000);
     const originalLabel = submit ? submit.textContent : '';

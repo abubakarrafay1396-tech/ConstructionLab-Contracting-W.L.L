@@ -33,11 +33,10 @@ Checked locally on 1 October 2026. A local check is not a live-delivery guarante
 
 ## Contact form update — 4 October 2026
 
-Primary submission now opens a validated WhatsApp enquiry to +973 38951500.
-The setup notice is removed. Browser checks cover required fields, invalid email,
-honeypot rejection, service preselection, encoded draft contents and the fallback
-link. No WhatsApp message is sent during these checks. Direct email/server delivery
-remains an optional integration.
+The form now offers both email and WhatsApp draft buttons. Both validate input
+and include all enquiry details. Email is addressed to info@constructionlab.com;
+WhatsApp uses +973 38951500. The visitor presses Send in the chosen app. The setup
+notice remains removed. Tests simulate app opening; no messages are sent.
 
 ## Placeholders still to fill
 

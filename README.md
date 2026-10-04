@@ -47,10 +47,12 @@ measurement does not count unsuccessful attempts as submitted leads.
 
 ## Enquiry form
 
-The primary button validates the fields and opens a WhatsApp draft addressed to
-+973 38951500. The visitor reviews it and presses Send in WhatsApp. A fallback
-link is shown if the browser blocks the new window. No enquiry is marked as
-received merely because WhatsApp opened. The form works without an email backend.
+The form provides both Send by email and Send on WhatsApp. Both validate the
+fields and include all enquiry details in a draft. Email opens the visitor's
+email app addressed to info@constructionlab.com; WhatsApp opens a chat addressed
+to +973 38951500. The visitor must press Send in that app. Email requires an
+email app configured on the device. Fallback links are displayed, and neither
+action claims confirmed delivery. No setup notice is shown above the form.
 
 ## Optional form endpoint contract
 
@@ -92,7 +94,7 @@ when available. The five downloaded photos total approximately 406 KB.
 
 1. Fill confirmed company details in js/config.js. Update HTML fallback contact
    text to match, for visitors who do not run JavaScript.
-2. Test the WhatsApp draft on desktop and mobile. A FORM_ENDPOINT is optional;
+2. Test both email and WhatsApp drafts on desktop and mobile. FORM_ENDPOINT is optional;
    connect and test it only if direct server/email delivery is required.
 3. Set SITE_URL to the final HTTPS domain/folder. Replace https://example.invalid/
    in sitemap.xml, then add the correct uncommented Sitemap line in robots.txt.
